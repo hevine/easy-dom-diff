@@ -1,0 +1,21 @@
+.list{
+    list-style: none;
+}
+.list-group{
+    color:blue;
+    list-style: none;
+}
+.item, .item-active,.item-div{
+    float: left;
+    width: 300px;
+    font-size:40px;
+}
+.item-active{
+    color:red;
+}
+.list-item{
+    color:red;
+}
+.item-div{
+    color:green;
+}

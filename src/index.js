@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { createElement,render, renderDOM } from './element'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import diff from './diff';
+import patch from './patch';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import './style.css'
+let virtualDom1 = createElement('ul', { class: 'list'}, [
+    createElement('li',{class:'item'}, ['a']),
+    createElement('li',{class:'item'}, ['b']),
+    createElement('li',{class:'item'}, ['c'])
+]);
+let virtualDom2= createElement('ul', { class: 'list'}, [
+    createElement('li',{class:'item'}, ['1']),
+    createElement('li',{class:'item-active'}, ['b']),
+    createElement('div',{class:'item-div'}, ['3']),
+    
+]);
+let el = render(virtualDom1);
+console.log(virtualDom1);
+console.log(el);
+let patches = diff(virtualDom1, virtualDom2);
+//把补丁包给el元素打上。并重新更新视图
+patch(el, patches); 
+console.log('patches', patches)
+renderDOM(el, window.root);
