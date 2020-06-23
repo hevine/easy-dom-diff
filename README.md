@@ -18,9 +18,5 @@
 
 
 
-
-代码参考：
-https://codepen.io/hehedaidai/pen/eYJvjEg?editors=1111
-
-课程参考：
-http://www.javascriptpeixun.cn/course/55/task/11955/show
+文章参考：
+https://www.jianshu.com/p/98ea87eed412
